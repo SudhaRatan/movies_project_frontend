@@ -1,0 +1,18 @@
+.loginCont{
+  max-width: 600px;
+  display: grid;
+  border:1px solid #808080;
+  padding:30px;
+  border-radius: 20px;
+}
+
+.main{
+  display: grid;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.mb-3{
+  width:400px
+}

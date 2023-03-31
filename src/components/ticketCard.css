@@ -1,0 +1,42 @@
+.ticket-cont {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  width: 60vw;
+  border: 1px solid #00000040;
+  box-shadow: 2px 2px 12px 2px #00000030;
+  padding: 20px;
+  gap: 20px;
+  flex-direction: row;
+  border-radius: 10px;
+}
+
+@media screen and (width<800px) {
+  .ticket-cont {
+    width: 99vw;
+  }
+}
+
+.ticketImg {
+  width: 120px;
+  height: 180px;
+  /* flex:1 */
+}
+
+.movieName {
+  /* flex:1; */
+  display: flex;
+  font-size: 2rem;
+}
+
+.theatreName {
+  font-size: 1.3rem;
+}
+
+.qwe::after {
+  content: ", ";
+}
+
+.qwe:last-child::after {
+  content: "";
+}

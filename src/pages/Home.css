@@ -1,0 +1,88 @@
+.Home {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  white-space: nowrap;
+}
+
+.Home123 {
+  /* text-align: center; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  justify-content: space-around;
+  align-items: center;
+  margin: 0px;
+  white-space: nowrap;
+  position: relative;
+  background-color: rgba(177, 214, 247, 0.566);
+  padding:30px 0px;
+}
+
+.availMovies {
+  font-size: 2em;
+}
+
+.movieCard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  margin: 20px;
+}
+
+.admin-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px
+}
+
+.add {
+  background-color: coral;
+  padding: 10px 20px;
+  margin: 20px 0px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.2s all ease-in;
+}
+
+.add:hover {
+  box-shadow: 2px 2px 12px 1px #00000060;
+}
+
+.bookMovie{
+  /* width: 100%; */
+  /* height: 100px; */
+  /* background-color: blueviolet; */
+  
+}
+
+.bookform{
+  padding: 30px;
+  width:410px;
+  border:1px solid grey;
+  border-radius: 10px;
+}
+
+.selectTheatre{
+  width:350px;
+  outline: none;
+  height:36px;
+  border: 1px solid '#00000050';
+  border:none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.selectTheatre1{
+  width:350px;
+  outline: none;
+  height:36px;
+  border: 1px solid '#00000050';
+  border:none;
+  border-radius: 10px;
+  padding:2px;
+}
+

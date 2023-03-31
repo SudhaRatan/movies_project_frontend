@@ -1,0 +1,40 @@
+.movieCont {
+  /* height: 340px; */
+  /* background-color: white; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  /* height:980px; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.movieImg {
+  height: 400px;
+  width: 260px;
+  border-radius: 10px;
+}
+
+.movieName {
+  text-align: center;
+  color: '#000';
+  font-size: 1.4rem;
+}
+
+.book {
+  text-decoration: none;
+  text-align: center;
+  color: '#fff';
+  background-color: crimson;
+  padding: 10px 20px;
+  width: 150px;
+  transition: 0.2s all ease-in;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.book:hover {
+  box-shadow: 2px 2px 12px 1px #00000060;
+}
