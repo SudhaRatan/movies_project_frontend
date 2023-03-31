@@ -18,7 +18,7 @@ const MovieCard = ({ movie, show, seat }) => {
           fontSize: "1rem",
           opacity: 0.9,
           fontWeight: 600
-        }}>{seat < 30 ? "Available" : seat <= 49 ? "Book ASAP" : "Sold out"}</div>
+        }}>{seat <= 30 ? "Available" : 30 > seat > 50 ? "Book ASAP" : "Sold out"}</div>
         <img className='movieImg' src={movie.image} alt="movieImage" />
       </div>
       <div className='movieName'>{movie.name}</div>
