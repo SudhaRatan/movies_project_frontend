@@ -8,7 +8,7 @@ const MovieCard = ({ movie, show, seat }) => {
       <div style={{ position: 'relative' }}>
         <div style={{
           position: "absolute",
-          zIndex: 10,
+          zIndex: 1,
           backgroundColor: '#efefef',
           right: 0,
           margin: 10,
@@ -18,7 +18,7 @@ const MovieCard = ({ movie, show, seat }) => {
           fontSize: "1rem",
           opacity: 0.9,
           fontWeight: 600
-        }}>{seat < 30 ? "Available" : seat <=40 ?  "Book ASAP" : "Sold out"}</div>
+        }}>{seat < 30 ? "Available" : seat <=49 ?  "Book ASAP" : "Sold out"}</div>
         <img className='movieImg' src={movie.image} alt="movieImage" />
       </div>
       <div className='movieName'>{movie.name}</div>

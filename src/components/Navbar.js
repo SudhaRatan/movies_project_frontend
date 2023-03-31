@@ -91,6 +91,7 @@ function DefNavbar() {
             right: 0,
             backgroundColor: '#202124',
             padding: 10,
+            zIndex:999
           }}>
             {
               localStorage.getItem('token')
