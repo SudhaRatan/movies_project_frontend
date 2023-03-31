@@ -29,7 +29,7 @@ const MovieCard = ({ movie, show, seat }) => {
             <div style={{ color: '#FFF', textDecoration: 'none' }}>Book now</div>
           </Link>
           :
-          <div className='book1' style={{ color: '#000', textDecoration: 'none' }}>Sold out</div>
+          <div className='book1' style={{ color: '#000', textDecoration: 'none',cursor:"not-allowed" }}>Sold out</div>
       }
     </div>
   )
