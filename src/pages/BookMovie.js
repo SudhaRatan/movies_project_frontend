@@ -52,7 +52,7 @@ const BookMovie = () => {
   const postTicket = () => {
     axios
       .post(`${API}/bookTicket`, {
-        Movie: location.state._id,
+        Movie: location.state.movie._id,
         Theatre: theatre,
         date,
         seats: no,

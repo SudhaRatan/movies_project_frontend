@@ -2,7 +2,6 @@ import './MovieCard.css'
 import { Link } from 'react-router-dom'
 
 const MovieCard = ({ movie, show, seat }) => {
-  console.log(seat)
   return (
     <div className='movieCont'>
       <div style={{ position: 'relative' }}>
@@ -21,7 +20,9 @@ const MovieCard = ({ movie, show, seat }) => {
         }}>{ seat <= 30 ? "Available" : 30 > seat > 50 ? "Book ASAP" : "Sold out"}</div>
         <img className='movieImg' src={movie.image} alt="movieImage" />
       </div>
-      <div className='movieName'>{movie.name}</div>
+      <div style={{
+        fontSize:"1.4rem"
+      }}>{movie.name}</div>
       {
         show && seat ?
           seat <= 49 ?
@@ -31,7 +32,7 @@ const MovieCard = ({ movie, show, seat }) => {
             :
             <div className='book1' style={{ color: '#000', textDecoration: 'none', cursor: "not-allowed" }}>Sold out</div>
           :
-          <Link className='book' to={"/bookmovie"} state={movie}>
+          <Link className='book' to={"/bookmovie"} state={{movie,seat}}>
             <div style={{ color: '#FFF', textDecoration: 'none' }}>Book now</div>
           </Link>
       }

@@ -13,32 +13,37 @@ const AddTheatreModal = ({ show, toggle }) => {
 
   const [theatreName, setTheatreName] = useState('')
   const [show1, setShow1] = useState(false)
-  const [message,setMessage] = useState('')
+  const [message, setMessage] = useState('')
 
   const addTheatre = () => {
-    axios
-      .post(`${API}/addtheatre`, {
-        name: theatreName
-      })
-      .then(res => {
-        if (res.data.auth) {
-          setTheatreName('')
-          setMessage(res.data.message)
-          setShow1(true)
-          toggle()
-        } else {
-          console.log(res.data)
-          setMessage(res.data.message)
-          setShow1(true)
-        }
-      })
+    if (theatreName) {
+      axios
+        .post(`${API}/addtheatre`, {
+          name: theatreName
+        })
+        .then(res => {
+          if (res.data.auth) {
+            setTheatreName('')
+            setMessage(res.data.message)
+            setShow1(true)
+            toggle()
+          } else {
+            console.log(res.data)
+            setMessage(res.data.message)
+            setShow1(true)
+          }
+        })
+    } else {
+      setMessage('Enter theatre name')
+      setShow1(true)
+    }
   }
 
   return (
     <>
 
       <ToastContainer className="p-3" position='top-center'>
-        <Toast closeButton={false} onClose={() => setShow1(false)} show={show1} delay={3000} autohide>
+        <Toast closeButton={false} onClose={() => setShow1(false)} show={show1} delay={1500} autohide>
           <Toast.Header>
             <strong className="me-auto">Movie Booking</strong>
             <small>just now</small>

@@ -16,8 +16,9 @@ const MyBookings = () => {
     axios
       .get(`${API}/mybookings`)
       .then(res => {
+        console.log(res.data.result)
         if(res.data.auth){
-          setTickets(res.data)
+          setTickets(res.data.result)
         } else{
           navigate('/login',{
             state:{

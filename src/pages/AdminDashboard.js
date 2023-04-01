@@ -18,6 +18,15 @@ const AdminDashboard = () => {
   const [movies, setMovies] = useState(null)
   const [seats, setSeats] = useState(null)
   const navigate = useNavigate()
+  
+  const [show, setShow] = useState(false)
+  const [show1, setShow1] = useState(false)
+  const toggle = () => {
+    setShow(!show)
+  }
+  const toggle1 = () => {
+    setShow1(!show1)
+  }
 
   useEffect(() => {
     axios
@@ -35,16 +44,7 @@ const AdminDashboard = () => {
           })
         }
       })
-  }, [])
-
-  const [show, setShow] = useState(false)
-  const [show1, setShow1] = useState(false)
-  const toggle = () => {
-    setShow(!show)
-  }
-  const toggle1 = () => {
-    setShow1(!show1)
-  }
+  }, [show,show1])
 
   return (
     <div className="cont" >

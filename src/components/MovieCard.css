@@ -16,11 +16,6 @@
   border-radius: 10px;
 }
 
-.movieName {
-  text-align: center;
-  color: '#000';
-  font-size: 1.4rem;
-}
 
 .book {
   text-decoration: none;
@@ -28,10 +23,10 @@
   color: '#fff';
   background-color: crimson;
   padding: 10px 20px;
-  width: 150px;
+  /* width: 50px; */
   transition: 0.2s all ease-in;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 1em;
 }
 
@@ -44,8 +39,8 @@
   width: 150px;
   transition: 0.2s all ease-in;
   border-radius: 10px;
-  margin-bottom: 20px;
-  font-size: 1em;
+  margin-bottom: 40px;
+  font-size: 0.8em;
 }
 
 .book:hover {
