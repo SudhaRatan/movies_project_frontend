@@ -3,16 +3,28 @@ import { useEffect, useState } from "react";
 import { API } from "../App";
 import "./MyBookings.css"
 import TicketCard from "../components/ticketCard";
+import { useNavigate } from "react-router-dom";
 
 const MyBookings = () => {
+  axios.defaults.headers.get['x-access-token'] = localStorage.getItem('token')
+  axios.defaults.headers.post['x-access-token'] = localStorage.getItem('token')
 
+  const navigate = useNavigate()
   const [tickets, setTickets] = useState('')
 
   useEffect(() => {
     axios
       .get(`${API}/mybookings`)
       .then(res => {
-        setTickets(res.data)
+        if(res.data.auth){
+          setTickets(res.data)
+        } else{
+          navigate('/login',{
+            state:{
+              message:"Login to continue"
+            }
+          })
+        }
       })
   }, [])
 

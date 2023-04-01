@@ -10,6 +10,7 @@ const SearchPage = () => {
 
   const [movies, setMovies] = useState(null)
   const [searchParams] = useSearchParams()
+  const [seats, setSeats] = useState(null)
   // console.log(searchParams.get('search'))
 
   const getMovies = () => {
@@ -20,8 +21,18 @@ const SearchPage = () => {
       })
   }
 
+  const getMovieDetails = () => {
+    axios
+      .get(`${API}/getMovieDetails`)
+      .then(res => {
+        setSeats(res.data.selectedSeats)
+        // console.log(res.data.selectedSeats)
+      })
+  }
+
   useEffect(() => {
     getMovies();
+    getMovieDetails();
   }, [searchParams.get('search')])
 
   return (
@@ -29,11 +40,16 @@ const SearchPage = () => {
       <h3 className='availMovies'>Search results</h3>
       <div className='movieCard-container'>
         {
-          movies
+          movies && seats
             ?
             movies.map(movie => {
-              return(
-                <MovieCard key={movie._id} movie={movie} />
+              let seatno = seats.filter(seatItem => {
+                if (seatItem.id == movie._id) {
+                  return (seatItem)
+                }
+              })
+              return (
+                <MovieCard key={movie._id} movie={movie} show={true} seat={seatno[0].seatNumbers} />
               )
             })
             : null

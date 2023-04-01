@@ -16,7 +16,7 @@ const BookMovie = () => {
 
   const navigate = useNavigate()
   const location = useLocation()
-  const [theatres, setTheatres] = useState(location.state.theatres)
+  const [theatres, setTheatres] = useState(location.state.movie.theatres)
 
   const [message, setMessage] = useState(null)
   const [sel, setSel] = useState(0)
@@ -115,7 +115,7 @@ const BookMovie = () => {
         <div style={{
           // flex: 1,
         }}>
-          <MovieCard movie={location.state} />
+          <MovieCard movie={location.state.movie} seat={location.state.seat} />
         </div>
         <div style={{
           flex: 1
@@ -124,7 +124,7 @@ const BookMovie = () => {
             <h3 style={{
               textAlign: "left",
               margin: "20px 10px",
-            }}>Book tickets for {location.state.name}</h3>
+            }}>Book tickets for {location.state.movie.name}</h3>
             <div className="bookform">
               {
                 message &&

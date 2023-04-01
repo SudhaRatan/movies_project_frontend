@@ -37,17 +37,6 @@ const Home = () => {
 
   return (
     <div className='Home'>
-      {/* {
-        localStorage.getItem('token') && localStorage.getItem('name') === "Admin"
-        &&
-        <div>
-          <h3 className='availMovies'>Admin options</h3>
-          <div className='admin-cont'>
-            <div className='add' onClick={() => navigate('/addmovie')}>Add a movie</div>
-            <div className='add'>Add a theatre</div>
-          </div>
-        </div>
-      } */}
       <h3 className='availMovies'>Available Movies</h3>
       <div className='movieCard-container'>
         {

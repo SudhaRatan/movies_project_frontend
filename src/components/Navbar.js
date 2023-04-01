@@ -137,6 +137,7 @@ function DefNavbar() {
                   <div onClick={() => {
                     setToggle(!toggle)
                     localStorage.removeItem('token')
+                    navigate('/')
                   }}>
                     <Button style={{
                       backgroundColor: '#576CBC',
