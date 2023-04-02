@@ -4,6 +4,7 @@ import { API } from "../App";
 import "./MyBookings.css"
 import TicketCard from "../components/ticketCard";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
 const MyBookings = () => {
   axios.defaults.headers.get['x-access-token'] = localStorage.getItem('token')
@@ -17,12 +18,12 @@ const MyBookings = () => {
       .get(`${API}/mybookings`)
       .then(res => {
         console.log(res.data.result)
-        if(res.data.auth){
+        if (res.data.auth) {
           setTickets(res.data.result)
-        } else{
-          navigate('/login',{
-            state:{
-              message:"Login to continue"
+        } else {
+          navigate('/login', {
+            state: {
+              message: "Login to continue"
             }
           })
         }
@@ -34,11 +35,13 @@ const MyBookings = () => {
       <div className="text">My bookings</div>
       <div className="ticketCardCont">
         {
-          tickets && tickets.map(ticket => {
+          tickets ? tickets.map(ticket => {
             return (
               <TicketCard key={ticket._id} ticket={ticket} />
             )
           })
+            :
+            <Spinner />
         }
       </div>
     </div>

@@ -1,10 +1,10 @@
-import Button from 'react-bootstrap/Button';
 import './Home.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { API } from '../App';
 import MovieCard from '../components/MovieCard';
 import { useSearchParams } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 
 const SearchPage = () => {
 
@@ -44,7 +44,7 @@ const SearchPage = () => {
             ?
             movies.map(movie => {
               let seatno = seats.filter(seatItem => {
-                if (seatItem.id == movie._id) {
+                if (seatItem.id === movie._id) {
                   return (seatItem)
                 }
               })
@@ -52,7 +52,7 @@ const SearchPage = () => {
                 <MovieCard key={movie._id} movie={movie} show={true} seat={seatno[0].seatNumbers} />
               )
             })
-            : null
+            : <Spinner />
         }
       </div>
     </div>

@@ -1,10 +1,10 @@
 import { Button } from "react-bootstrap";
 import { createSearchParams, Link } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { API } from "../App";
+import { useState } from "react";
 import Im from './menu.png'
 import { useNavigate } from "react-router-dom";
+import "./Navbar.css"
 
 function DefNavbar() {
   axios.defaults.headers.get['x-access-token'] = localStorage.getItem('token')
@@ -26,14 +26,13 @@ function DefNavbar() {
 
   return (
     <div style={{
-      display: "flex",
       backgroundColor: '#202124',
       alignItems: "center",
       position: 'fixed',
       top: 0,
       zIndex: 10,
       width: '100%'
-    }}>
+    }} className='navbar'>
       <Link to={"/"}
         style={{
           display: "inline",
@@ -42,32 +41,32 @@ function DefNavbar() {
           color: '#fefefe',
           textDecoration: "none"
         }}
-      >Movie Booking</Link>
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        type="text"
-        style={{
-          flex: 1,
-          borderTopLeftRadius: "10px",
-          borderBottomLeftRadius: "10px",
-          margin: "10px 0px 10px 30px",
-          outline: "0px",
-          border: "1px",
-          height: "30px",
-          padding: "18px",
-        }}
-        placeholder="Search a movie"
-      />
-      <button onClick={handleSearch} style={{
-        height: "39px",
-        width: "80px",
-        marginRight: "10px",
-        backgroundColor: "#fefefe",
-        color: '#202124',
-        borderTopRightRadius: "10px",
-        borderBottomRightRadius: "10px"
-      }} >Search</button>
+      >Home</Link>
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          style={{
+            flex: 1,
+            borderTopLeftRadius: "10px",
+            borderBottomLeftRadius: "10px",
+            margin: "10px 0px 10px 30px",
+            outline: "0px",
+            border: "1px",
+            height: "30px",
+            padding: "18px",
+          }}
+          placeholder="Search a movie"
+        />
+        <button onClick={handleSearch} style={{
+          height: "39px",
+          // width: "80px",
+          marginRight: "10px",
+          backgroundColor: "#fefefe",
+          color: '#202124',
+          borderTopRightRadius: "10px",
+          borderBottomRightRadius: "10px"
+        }} >Search</button>
       <div style={{
         color: '#fefe',
         fontSize: 24,
@@ -91,7 +90,7 @@ function DefNavbar() {
             right: 0,
             backgroundColor: '#202124',
             padding: 10,
-            zIndex:999
+            zIndex: 999
           }}>
             {
               localStorage.getItem('token')
@@ -106,7 +105,7 @@ function DefNavbar() {
                   gap: 20,
                 }}>Hi {localStorage.getItem('name')}
                   {
-                    localStorage.getItem('name') == "Admin" &&
+                    localStorage.getItem('name') === "Admin" &&
                     <div onClick={() => {
                       setToggle(!toggle)
                       navigate('/dashboard')
@@ -117,10 +116,10 @@ function DefNavbar() {
                         width: 200
                       }}>Admin DashBoard</Button>
                     </div>
-                    
+
                   }
                   {
-                    localStorage.getItem('name') != "Admin" &&
+                    localStorage.getItem('name') !== "Admin" &&
                     <div onClick={() => {
                       setToggle(!toggle)
                       navigate('/mybookings')
@@ -131,7 +130,7 @@ function DefNavbar() {
                         width: 200
                       }}>My bookings</Button>
                     </div>
-                    
+
                   }
 
                   <div onClick={() => {

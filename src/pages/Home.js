@@ -1,16 +1,14 @@
-import Button from 'react-bootstrap/Button';
 import './Home.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { API } from '../App';
 import MovieCard from '../components/MovieCard';
-import { useNavigate } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 
 const Home = () => {
   
   const [seats, setSeats] = useState(null)
   const [movies, setMovies] = useState(null)
-  const navigate = useNavigate()
 
   const getMovies = () => {
     axios
@@ -44,7 +42,7 @@ const Home = () => {
             ?
             movies.map(movie => {
               let seatno = seats.filter(seatItem => {
-                if (seatItem.id == movie._id) {
+                if (seatItem.id === movie._id) {
                   return (seatItem)
                 }
               })
@@ -52,7 +50,7 @@ const Home = () => {
                 <MovieCard key={movie._id} movie={movie} show={true} seat={seatno[0].seatNumbers} />
               )
             })
-            : null
+            : <Spinner />
         }
       </div>
     </div>

@@ -4,21 +4,18 @@ import { API } from "../App";
 import "./MyBookings.css"
 import InfoCard from "../components/infoCard";
 import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import AddTheatreModal from "../components/addTheatreModal";
 import AddMovieModal from "../components/addMovieModal";
+import { Spinner } from "react-bootstrap";
 
 const AdminDashboard = () => {
   axios.defaults.headers.get['x-access-token'] = localStorage.getItem('token')
   axios.defaults.headers.post['x-access-token'] = localStorage.getItem('token')
 
-
-  const [tickets, setTickets] = useState('')
   const [movies, setMovies] = useState(null)
   const [seats, setSeats] = useState(null)
   const navigate = useNavigate()
-  
+
   const [show, setShow] = useState(false)
   const [show1, setShow1] = useState(false)
   const toggle = () => {
@@ -44,7 +41,7 @@ const AdminDashboard = () => {
           })
         }
       })
-  }, [show,show1])
+  }, [show, show1])
 
   return (
     <div className="cont" >
@@ -60,17 +57,20 @@ const AdminDashboard = () => {
       </div>
       <div className="ticketCardCont">
         {
-          movies && seats &&
-          movies.map((movie, index) => {
-            let seatno = seats.filter(seatItem => {
-              if (seatItem.id == movie._id) {
-                return (seatItem)
-              }
+          movies && seats ?
+            movies.map((movie, index) => {
+              let seatno = seats.filter(seatItem => {
+                if (seatItem.id === movie._id) {
+                  return (seatItem)
+                }
+                return true
+              })
+              return (
+                <InfoCard key={movie._id} movie={movie} seat={seatno[0].seatNumbers} />
+              )
             })
-            return (
-              <InfoCard key={movie._id} movie={movie} seat={seatno[0].seatNumbers} />
-            )
-          })
+            :
+            <Spinner />
         }
       </div>
     </div>
