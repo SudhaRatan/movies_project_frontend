@@ -4,7 +4,7 @@ import { API } from "../App";
 import "./MyBookings.css"
 import TicketCard from "../components/ticketCard";
 import { useNavigate } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import Loading from "../components/Loader";
 
 const MyBookings = () => {
   axios.defaults.headers.get['x-access-token'] = localStorage.getItem('token')
@@ -41,7 +41,7 @@ const MyBookings = () => {
             )
           })
             :
-            <Spinner />
+            <Loading />
         }
       </div>
     </div>

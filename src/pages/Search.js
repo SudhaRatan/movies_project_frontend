@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { API } from '../App';
 import MovieCard from '../components/MovieCard';
 import { useSearchParams } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
+import Loading from '../components/Loader';
 
 const SearchPage = () => {
 
@@ -52,7 +52,7 @@ const SearchPage = () => {
                 <MovieCard key={movie._id} movie={movie} show={true} seat={seatno[0].seatNumbers} />
               )
             })
-            : <Spinner />
+            : <Loading />
         }
       </div>
     </div>

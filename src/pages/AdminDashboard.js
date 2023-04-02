@@ -6,7 +6,7 @@ import InfoCard from "../components/infoCard";
 import { useNavigate } from "react-router-dom";
 import AddTheatreModal from "../components/addTheatreModal";
 import AddMovieModal from "../components/addMovieModal";
-import { Spinner } from "react-bootstrap";
+import Loading from "../components/Loader";
 
 const AdminDashboard = () => {
   axios.defaults.headers.get['x-access-token'] = localStorage.getItem('token')
@@ -70,7 +70,7 @@ const AdminDashboard = () => {
               )
             })
             :
-            <Spinner />
+            <Loading />
         }
       </div>
     </div>

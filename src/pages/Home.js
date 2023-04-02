@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { API } from '../App';
 import MovieCard from '../components/MovieCard';
-import { Spinner } from 'react-bootstrap';
+import Loading from '../components/Loader';
 
 const Home = () => {
   
@@ -50,7 +50,7 @@ const Home = () => {
                 <MovieCard key={movie._id} movie={movie} show={true} seat={seatno[0].seatNumbers} />
               )
             })
-            : <Spinner />
+            : <Loading />
         }
       </div>
     </div>
