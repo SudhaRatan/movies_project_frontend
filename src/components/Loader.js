@@ -5,8 +5,9 @@ const Loading = () => {
     <div style={{
       flex: 1,
       display: 'flex',
-      justifyContent:"center",
-      alignItems:"center"
+      justifyContent: 'center',
+      alignItems: "center",
+      flexDirection: "column"
     }}>
       <Spinner />
     </div>
